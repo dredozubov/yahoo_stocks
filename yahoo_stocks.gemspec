@@ -7,7 +7,7 @@ spec = Gem::Specification.new do |gem|
   gem.version = YahooStocks::VERSION
   gem.date = Date.today.to_s
 
-  gem.author = "Denis Redozubov"
+  gem.authors = ["Denis Redozubov"]
   gem.email = "denis.redozubov@gmail.com"
   gem.homepage = "http://www.denisredozubov.com"
 
