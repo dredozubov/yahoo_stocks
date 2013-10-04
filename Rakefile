@@ -8,3 +8,7 @@ end
 task :release => :build do
   system "gem push yahoo_stocks-#{YahooStocks::VERSION}"
 end
+
+task :test do
+  system "rspec spec"
+end
