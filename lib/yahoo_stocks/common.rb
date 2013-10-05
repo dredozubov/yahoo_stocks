@@ -1,5 +1,9 @@
+require 'yahoo_stocks/endpoint/tags'
+
 module YahooStocks
   module Common
+
+    include YahooStocks::Endpoint::Tags
 
     private
 
@@ -15,8 +19,8 @@ module YahooStocks
       return tags if tags.is_a? String
       tags.map! do |tag|
         case tag
-        when /\w{1,2}/ then tag
-        else YahooStocks::Endpoint::Tags[tag]
+        when /^\w{1,2}$/ then tag
+        else TAGS[tag]
         end
       end
 

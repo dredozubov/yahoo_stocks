@@ -6,22 +6,31 @@ describe YahooStocks::Quotes do
   let(:symbol) { :AAPL }
   let(:format) { 'n1l1' }
 
-  context "dynamic calls" do
+  describe "dynamic calls" do
 
-    specify 'upcase' do
-      subject.should_receive(symbol).with(kind_of(String))
-      expect { subject.send(symbol, format) }.to_not raise_error
+    context "with format" do
+
+      specify 'upcase' do
+        subject.should_receive(symbol).with(kind_of(String))
+        expect { subject.send(symbol, format) }.to_not raise_error
+      end
+
+      specify 'downcase' do
+        s = symbol.downcase.to_sym
+        subject.should_receive(s).with(kind_of(String))
+        expect { subject.send(s, format) }.to_not raise_error
+      end
+
     end
 
-    specify 'downcase' do
-      s = symbol.downcase.to_sym
-      subject.should_receive(s).with(kind_of(String))
-      expect { subject.send(s, format) }.to_not raise_error
+    specify "without format" do
+      subject.should_receive(symbol)
+      expect { subject.send(symbol) }.to_not raise_error
     end
 
   end
 
-  context '.get' do
+  describe '.get' do
 
     context 'symbol as ' do
 

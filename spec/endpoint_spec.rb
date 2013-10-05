@@ -4,12 +4,12 @@ require 'yahoo_stocks/endpoint'
 
 describe YahooStocks::Endpoint do
 
-    let(:format) { YahooStocks::Endpoint::DEFAULT_FORMAT }
+    let(:format) { YahooStocks::Endpoint::FORMAT }
     let(:test_params) { "?s=AAPL&f=#{format}" }
 
     describe "compose quotes uri" do
       YahooStocks::Endpoint.compose_quotes(:AAPL).should == \
-        URI.parse('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL&f=n0s0l1op0')
+        URI.parse('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL&f=s0c1p0')
     end
 
     describe "get_uri with one symbol" do

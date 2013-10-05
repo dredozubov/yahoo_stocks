@@ -1,9 +1,13 @@
-module YahooFinance
+require 'csv'
+
+module YahooStocks
   module Backend
-    class BasicBackend
-      def produce_row(*args)
+    class Basic
+
+      def produce(*args)
         raise NotImplementedError, 'backend not implemented'
       end
+
     end
   end
 end

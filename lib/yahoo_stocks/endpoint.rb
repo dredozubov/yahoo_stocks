@@ -5,21 +5,22 @@ module YahooStocks
   module Endpoint
 
     extend URI::Escape
-    include YahooStocks::Common
+    extend YahooStocks::Common
 
-    DEFAULT_ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv?'
-    DEFAULT_FORMAT = 'n0s0l1op0'
+    ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv?'
+    FORMAT = [:symbol, :last_trade_price, :change, :previous_close] #
 
-    def self.compose_quotes(symbols, format = DEFAULT_FORMAT)
-      options = {}
-      options[:s] = symbols
-      URI.parse(get_uri(format, options))
+    def self.compose_quotes(symbols, format = nil)
+      format = get_format(format ? format : FORMAT)
+      symbols = get_values(symbols)
+      uri = get_uri(format, s: symbols)
+      URI.parse(uri)
     end
 
     private
 
     def self.get_uri(format, options={})
-      DEFAULT_ENDPOINT + joined(options) + "&f=#{format}"
+      ENDPOINT + joined(options) + "&f=#{format}"
     end
 
     def self.joined(options)
@@ -32,13 +33,6 @@ module YahooStocks
       out
     end
 
-    def self.get_values(values)
-      case values
-      when String then [values]
-      when Symbol then [values.to_s]
-      when Array then values.map(&:to_s)
-      end
-    end
-
   end
 end
+
