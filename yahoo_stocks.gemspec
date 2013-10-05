@@ -2,7 +2,7 @@ $LOAD_PATH << File.expand_path('./lib')
 require 'yahoo_stocks'
 
 spec = Gem::Specification.new do |gem|
-  gem.name = "yahoo-stocks"
+  gem.name = "yahoo_stocks"
   gem.summary = "Sane Yahoo! Finance rubiesque client"
   gem.version = YahooStocks::VERSION
   gem.date = Date.today.to_s
