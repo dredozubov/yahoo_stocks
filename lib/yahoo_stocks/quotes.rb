@@ -9,7 +9,7 @@ module YahooStocks
     end
 
     def self.method_missing(symbol, format)
-      #get([symbol], format)
+      get([symbol], format)
     end
 
   end
