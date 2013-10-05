@@ -1,4 +1,5 @@
 require 'yahoo_stocks/common'
+require 'yahoo_stocks/backend'
 
 module YahooStocks
   module Quotes
@@ -6,6 +7,7 @@ module YahooStocks
     include YahooStocks::Common
 
     def self.get(symbol, format)
+
     end
 
     def self.method_missing(symbol, format)

@@ -8,14 +8,18 @@ module YahooStocks
     include YahooStocks::Common
 
     DEFAULT_ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv?'
+    DEFAULT_FORMAT = 'n0s0l1op0'
 
-    def compose()
+    def self.compose_quotes(symbols, format = DEFAULT_FORMAT)
+      options = {}
+      options[:s] = symbols
+      URI.parse(get_uri(format, options))
     end
 
     private
 
-    def self.get_uri(options={})
-      DEFAULT_ENDPOINT + joined(options)
+    def self.get_uri(format, options={})
+      DEFAULT_ENDPOINT + joined(options) + "&f=#{format}"
     end
 
     def self.joined(options)
