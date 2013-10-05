@@ -3,7 +3,7 @@ module YahooStocks
 
     private
 
-    def self.get_values(values)
+    def get_values(values)
       case values
       when String then [values]
       when Symbol then [values.to_s]
@@ -11,5 +11,17 @@ module YahooStocks
       end
     end
 
+    def get_format(tags)
+      return tags if tags.is_a? String
+      tags.map! do |tag|
+        case tag
+        when /\w{1,2}/ then tag
+        else YahooStocks::Endpoint::Tags[tag]
+        end
+      end
+
+      tags.compact.join
+
+    end
   end
 end
