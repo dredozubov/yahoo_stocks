@@ -19,6 +19,7 @@ module YahooStocks
 
     def self.method_missing(symbol, format = nil)
       # http://yehudakatz.com/2010/01/02/the-craziest-fing-bug-ive-ever-seen/
+      # http://stackoverflow.com/questions/8960685/ruby-why-does-puts-call-to-ary
       super if symbol == :to_ary
       get([symbol], format)
     end
