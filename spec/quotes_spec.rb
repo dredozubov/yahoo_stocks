@@ -4,20 +4,20 @@ require 'yahoo_stocks/quotes'
 describe YahooStocks::Quotes do
 
   let(:symbol) { :AAPL }
-  let(:format) { 'n1l1' }
+  let(:format) { [:l1, :v1] }
 
   describe "dynamic calls" do
 
     context "with format" do
 
       specify 'upcase' do
-        subject.should_receive(symbol).with(kind_of(String))
+        subject.should_receive(symbol).with(kind_of(Array))
         expect { subject.send(symbol, format) }.to_not raise_error
       end
 
       specify 'downcase' do
         s = symbol.downcase.to_sym
-        subject.should_receive(s).with(kind_of(String))
+        subject.should_receive(s).with(kind_of(Array))
         expect { subject.send(s, format) }.to_not raise_error
       end
 

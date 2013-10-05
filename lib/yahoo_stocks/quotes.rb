@@ -18,6 +18,7 @@ module YahooStocks
     end
 
     def self.method_missing(symbol, format = nil)
+      # http://yehudakatz.com/2010/01/02/the-craziest-fing-bug-ive-ever-seen/
       super if symbol == :to_ary
       get([symbol], format)
     end

@@ -16,11 +16,12 @@ module YahooStocks
     end
 
     def get_format(tags)
-      return tags if tags.is_a? String
       tags.map! do |tag|
+        tag = tag.to_sym
         case tag
-        when /^\w{1,2}$/ then tag
-        else TAGS[tag]
+        when *TAGS.keys then TAGS[tag]
+        when *TAGS.values then tag
+        else raise "invalid format: #{tag}"
         end
       end
 

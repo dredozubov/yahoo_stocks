@@ -8,7 +8,7 @@ module YahooStocks
     extend YahooStocks::Common
 
     ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv?'
-    FORMAT = [:symbol, :last_trade_price, :change, :previous_close] #
+    FORMAT = [:symbol, :last_trade_price_only, :change, :previous_close] #
 
     def self.compose_quotes(symbols, format = nil)
       format = get_format(format ? format : FORMAT)

@@ -8,7 +8,7 @@ module YahooStocks
         result = []
 
         CSV.parse(stream.body, quote_char: '"') do |*values|
-          result << values
+          result << values.map { |v| v.to_f rescue v }
         end
 
         result

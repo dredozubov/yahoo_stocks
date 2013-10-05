@@ -9,7 +9,7 @@ describe YahooStocks::Endpoint do
 
     describe "compose quotes uri" do
       YahooStocks::Endpoint.compose_quotes(:AAPL).should == \
-        URI.parse('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL&f=s0c1p0')
+        URI.parse('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL&f=s0l1c1p0')
     end
 
     describe "get_uri with one symbol" do

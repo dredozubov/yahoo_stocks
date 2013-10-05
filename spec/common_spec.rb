@@ -8,15 +8,15 @@ describe YahooStocks::Common do
   describe '.get_format' do
 
     it "works with strings" do
-      get_format("nsl1").should == "nsl1"
+      expect { get_format("foo") }.to raise_error
     end
 
     it "works with array of symbols" do
-      get_format([:n, :s, :l1]).should == "nsl1"
+      get_format([:v1, :s1, :l1]).should == "v1s1l1"
     end
 
     it "works with array of strings" do
-      get_format(%W{n s l1}).should == "nsl1"
+      get_format(%W{v1 s1 l1}).should == "v1s1l1"
     end
 
   end
