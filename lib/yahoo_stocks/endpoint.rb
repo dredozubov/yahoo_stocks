@@ -5,10 +5,10 @@ module YahooStocks
 
     extend URI::Escape
 
-    DEFAULT_ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv'
+    DEFAULT_ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv?'
 
     def self.get_uri(options={})
-      "#{DEFAULT_ENDPOINT}?#{joined(options)}"
+      DEFAULT_ENDPOINT + joined(options)
     end
 
     private
