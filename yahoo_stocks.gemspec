@@ -1,5 +1,5 @@
-$LOAD_PATH << '.'
-require 'lib/yahoo_stocks'
+$LOAD_PATH << File.expand_path('./lib')
+require 'yahoo_stocks'
 
 spec = Gem::Specification.new do |gem|
   gem.name = "yahoo-stocks"

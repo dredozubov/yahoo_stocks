@@ -1,5 +1,5 @@
-$LOAD_PATH << '.'
-require "lib/yahoo_stocks"
+$LOAD_PATH << File.expand_path('./lib')
+require "yahoo_stocks"
  
 task :build do
   system "gem build yahoo_stocks.gemspec"
