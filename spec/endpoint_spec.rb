@@ -3,7 +3,7 @@ require 'yahoo_stocks/endpoint'
 
 describe YahooStocks::Endpoint do
 
-    context "with one symbol" do
+    context "get_uri with one symbol" do
 
       it "as array of strings" do
         subject.get_uri(s: %W{AAPL}, f: %W{nsl1o}).should end_with '?s=AAPL&f=nsl1o'

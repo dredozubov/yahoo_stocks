@@ -1,17 +1,22 @@
 require 'uri'
+require 'yahoo_stocks/common'
 
 module YahooStocks
   module Endpoint
 
     extend URI::Escape
+    include YahooStocks::Common
 
     DEFAULT_ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv?'
+
+    def compose()
+    end
+
+    private
 
     def self.get_uri(options={})
       DEFAULT_ENDPOINT + joined(options)
     end
-
-    private
 
     def self.joined(options)
       out = options.inject('') do |s, el|
