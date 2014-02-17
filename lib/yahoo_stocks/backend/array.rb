@@ -11,7 +11,7 @@ module YahooStocks
           result << values.map { |v| v.to_f rescue v }
         end
 
-        result
+        result.flatten
       end
 
     end
