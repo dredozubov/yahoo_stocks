@@ -10,8 +10,8 @@ module YahooStocks
     ENDPOINT = 'http://download.finance.yahoo.com/d/quotes.csv?'
     FORMAT = [:symbol, :last_trade_price_only, :change, :previous_close] #
 
-    def self.compose_quotes(symbols, format = nil)
-      format = get_format(format ? format : FORMAT)
+    def self.compose_quotes(symbols, opts = nil)
+      format = get_format(opts[:format] || FORMAT)
       symbols = get_values(symbols)
       uri = get_uri(format, s: symbols)
       URI.parse(uri)
