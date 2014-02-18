@@ -6,10 +6,10 @@ Nice, fluffy and rubiesque "Yahoo! Finance" client
 ###Usage examples:
 
 ```ruby
-YahooStocks::Quotes.get(:apl)
+YahooStocks::Quotes.get(:goog)
 => ["APL", "33.08", "+0.18", "32.90"]
 
-YahooStocks::Quotes.apl
+YahooStocks::Quotes.goog
 => ["APL", "33.08", "+0.18", "32.90"]
 ```
 
@@ -19,20 +19,28 @@ FORMAT = [:symbol, :last_trade_price_only, :change, :previous_close]
 ```
 
 If you want to get a list of specific fields, you can supply optional *format*
-argument.
+argument. You can supply human-readable format or yahoo-api versions.
+(Correspondence table below)
+
 ```ruby
-YahooStocks::Quotes.get(:apl, format: [:b3, :c1])
+YahooStocks::Quotes.get(:GOOG, format: [:last_trade_time, :name])
+=> ["4:00pm", "Google Inc."]
+
+YahooStocks::Quotes.GOOG format: [:last_trade_time, :name]
+=> ["4:00pm", "Google Inc."]
+
+YahooStocks::Quotes.get(:goog, format: [:b3, :c1])
 => ["31.48", "+0.18"]
 
-YahooStocks::Quotes.apl format: [:b3, :c1]
+YahooStocks::Quotes.goog format: [:b3, :c1]
 => ["31.48", "+0.18"]
 ```
 
-### field list
+### Format fields correspondence table
 
 This fields correspond to "Yahoo! finance" API and used in format parameter.
 
-|field|ruby symbol|
+|human-readable|"yahoo! finance" api|
 |:----|----------:|
 |after_hours_change_realtime|:c8|
 |annualized_gain|:g3|
