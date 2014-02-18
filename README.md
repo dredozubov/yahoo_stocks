@@ -1,6 +1,9 @@
 yahoo_stocks
 ============
 
+[![Gem
+Version](https://badge.fury.io/rb/yahoo_stocks.png)](http://badge.fury.io/rb/yahoo_stocks)
+
 Nice, fluffy and rubiesque "Yahoo! Finance" client
 
 ###Usage examples:
