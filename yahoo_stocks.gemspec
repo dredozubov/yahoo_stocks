@@ -10,7 +10,7 @@ spec = Gem::Specification.new do |gem|
   gem.authors = ['Denis Redozubov']
   gem.license = 'MIT'
   gem.email = 'denis.redozubov@gmail.com'
-  gem.homepage = 'http://www.denisredozubov.com'
+  gem.homepage = 'http://github.com/dredozubov/yahoo_stocks'
 
   gem.files = Dir['Rakefile', '{lib,spec}/**/*', 'README', 'LICENSE']
 
